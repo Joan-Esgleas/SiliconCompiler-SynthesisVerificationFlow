@@ -9,4 +9,4 @@ build/
 build
 ./build
 
-.silicon-tfg-image.tar
+.silicon-compiler-image.tar
