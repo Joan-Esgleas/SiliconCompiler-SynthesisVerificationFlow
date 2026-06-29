@@ -151,14 +151,10 @@ def main():
     project.set('option', 'scheduler', 'maxthreads', N)
 
     asic_target(project, pdk=pdk)
-    # Set after asic_target so PDK defaults don't override these
-    project.set('constraint', 'area', 'density', 30)
-    project.set('tool', 'openroad', 'task', 'macro_placement', 'var',
-                'macro_place_halo', [2.0, 2.0])
     project.set_flow(SV2VASICFlow())
     project.set('tool', 'slang', 'task', 'elaborate', 'warningoff',
                 ['RangeOOB', 'RangeWidthOOB'])
-    #project.set('option', 'to', ['synthesis'])
+    project.set('option', 'to', ['synthesis'])
 
     project.run()
     project.summary()
